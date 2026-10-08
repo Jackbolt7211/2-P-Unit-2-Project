@@ -8,18 +8,53 @@ Requirements
 Select ONE Additional Feature to Add  
 [ no ] Feature 1 - Include Border Radius CSS Property 
 [ no ] Feature 2 - Include a Static Background Image
-[ no ] Feature 3 - Include An Animated Background Color Change
+[ yes ] Feature 3 - Include An Animated Background Color Change
 [ no ] Feature 4 - Embed YouTube Video 
 [ no ] Feature 5 - Include Border CSS Property 
 -->
     
 <!DOCTYPE HTML>
+
 <html>
     <head>
         <meta charset="utf-8">
         <title>Unit 2 Project</title>
-    </head> 
+        <style>
+            body {
+                background-color: cyan;
+                color: rgb(25, 2, 88);
+                transition: background-color 1.2s ease;
+            }
 
-   <h1>THE PORTAPOTTY</h1> 
-   <h5>A TRAVEL GUIDE BY JACKSON VITALE</h5>
-<img src = "https://cdn.unitedsiteservices.com/wp-content/smush-webp/2024/04/ADA-portable-toilet-interior-blue-scaled-1.jpg.webp"width=300>
+            body.pink-background {
+                background-color: pink;
+            }
+
+            @media (prefers-reduced-motion: reduce) {
+                body {
+                    transition: none;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <h1>THE PORTAPOTTY</h1>
+        <h5>A TRAVEL GUIDE BY JACKSON VITALE</h5>
+        <img src="https://cdn.unitedsiteservices.com/wp-content/smush-webp/2024/04/ADA-portable-toilet-interior-blue-scaled-1.jpg.webp" width="300">
+        <br>
+        <br>
+        Do you want to know the best places to find a portapotty? Well, look no further! This travel guide will help you find the best portapotties in the world.
+        <br>
+        <br>
+        <br>
+        <img id="second-image" src="https://cdnimg.webstaurantstore.com/images/products/large/448773/1665814.jpg" width="300">
+        <script>
+            const secondImage = document.getElementById("second-image");
+            const backgroundObserver = new IntersectionObserver(([entry]) => {
+                document.body.classList.toggle("pink-background", entry.isIntersecting);
+            }, { threshold: 0.35 });
+
+            backgroundObserver.observe(secondImage);
+        </script>
+    </body>
+</html>
