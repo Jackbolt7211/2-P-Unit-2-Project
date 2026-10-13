@@ -20,23 +20,23 @@ Select ONE Additional Feature to Add
         <meta charset="utf-8">
         <title>Unit 2 Project</title>
         <style>
-            body {
-                background-color: cyan;
-                color: rgb(25, 2, 88);
-                transition: background-color 1.2s ease;
+            body, html{
+               animation: colorChange 3s infinite alternate;
             }
 
-            body.pink-background {
-                background-color: pink;
-            }
-
-            @media (prefers-reduced-motion: reduce) {
-                body {
-                    transition: none;
-                }
+            @keyframes colorChange {
+                0% {background-color: #ff00ea;}
+                50% {background-color: #ff008c;}
+                100% {background-color: #ff0000;}
             }
         </style>
+       
     </head>
+    <style>
+        img {
+            border:8px solid #ffaa00;
+        }
+    </style>
     <body>
         <h1>THE PORTAPOTTY</h1>
         <h5>A TRAVEL GUIDE BY JACKSON VITALE</h5>
@@ -47,14 +47,11 @@ Select ONE Additional Feature to Add
         <br>
         <br>
         <br>
-        <img id="second-image" src="https://cdnimg.webstaurantstore.com/images/products/large/448773/1665814.jpg" width="300">
-        <script>
-            const secondImage = document.getElementById("second-image");
-            const backgroundObserver = new IntersectionObserver(([entry]) => {
-                document.body.classList.toggle("pink-background", entry.isIntersecting);
-            }, { threshold: 0.35 });
 
-            backgroundObserver.observe(secondImage);
-        </script>
+        <img id="second-image" src="https://cdnimg.webstaurantstore.com/images/products/large/448773/1665814.jpg" width="300">
+       <br>
+       <br>
+        This portapotty is perfect for those who want to sh*t in style. It's a gorgeous hot pink, hotter than what you'll drop inside it. Not any more sanitary than a regular portapotty, but it looks better.
+        <br>
     </body>
 </html>
